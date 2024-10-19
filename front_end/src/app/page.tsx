@@ -15,7 +15,7 @@ export default function Home() {
 
     try {
       
-      const response = await fetch('http://127.0.0.1:8000/download_mp3', {
+      const response = await fetch('https://youtube-downloader-ym2g.onrender.com/download_mp3', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
