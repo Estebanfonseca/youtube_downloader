@@ -31,7 +31,7 @@ export default function Home() {
 
       // Recuperar el nombre del archivo desde la respuesta del backend
       const contentDisposition = response.headers.get('Content-Disposition');
-      const matches = /filename\*?=['"]?utf-8''([^;"\n]*)['"]?/.exec(contentDisposition);
+      const matches = /filename\*?=['"]?utf-8''([^;"\n]*)['"]?/.exec(contentDisposition? contentDisposition : '');
 
       // Decodificar el nombre de archivo, si está codificado en UTF-8
       const filename = matches ? decodeURIComponent(matches[1]) : nombreArchivo;
