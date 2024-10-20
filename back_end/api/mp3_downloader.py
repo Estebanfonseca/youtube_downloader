@@ -29,6 +29,7 @@ def descargar_mp3(url:str,nombre_archivo:str = None):
                 'preferredquality': '192',
             }],
             'outtmpl': f'{titulo}',  # Guardar con título del video
+            'cookies': '../cookies.txt'
         }
         
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
