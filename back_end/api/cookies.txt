@@ -1,5 +1,6 @@
 # Netscape HTTP Cookie File
 # This is a generated file! Do not edit.
+#NombreDominio Path Secure HttpOnly Expires Nombre Valor
 
 .youtube.com	FALSE	/	TRUE	1761252543	LOGIN_INFO	AFmmF2swRQIhAIKbZrqwd_9_-4lG51d9q0jyz_BnWo8uz2Mvj60p9BLuAiAOe3u6jmT67llNpiDtmax7q1sIK6PhQ16pifps683ilw:QUQ3MjNmeWdXU0ZHUzQtdDVERGw2bHJ1T3J4cnd4RFJCT3FEanA1UDRmSWk2ZGZsc1F3MllRUl9sV2k0TjFBcnhOeXQ0dWxJWW4zZDBaT0t6Qm03OEpiYUtmYk9VWWxnanZBY1d5bXJMX1F3angtOWZPV0FqMHl3UUNxR1l5UGNUTzlhRURMOHpuOEI2a3lRT3dCcmpNN0Z1NWxtWEdCXzd3
 .youtube.com	FALSE	/	TRUE	1759702171	__Secure-1PSIDTS	sidts-CjEBQlrA-IRlMGYEifZu-E7S3ubO8WokoFGyP01Z5vPJtn-2UDaMWPyuUzx4O3gWn5NwEAA
