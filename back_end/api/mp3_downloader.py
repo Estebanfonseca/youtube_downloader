@@ -2,16 +2,36 @@ from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 import yt_dlp
 import os
-import shutil
 from models.clases import Request_mp3_downloader
 import urllib.parse
-import asyncio
+from google.oauth2.credentials import Credentials
+from google.auth.transport.requests import Request
+from google.auth.exceptions import RefreshError
 
 router = APIRouter()
 
 TEMP_FOLDER = "./descargas"
 if not os.path.exists(TEMP_FOLDER):
     os.makedirs(TEMP_FOLDER)
+
+# Configuración de OAuth2
+client_id = "tu_client_id"
+client_secret = "tu_client_secret"
+redirect_uri = "http://localhost:8000/callback"
+
+def obtener_token():
+    # Obtener token de acceso
+    creds = None
+    if creds is None or not creds.valid:
+        if creds and creds.expired and creds.refresh_token:
+            creds.refresh(Request())
+        else:
+            creds = Credentials(
+                token="tu_token",
+                refresh_token="tu_refresh_token",
+                scopes=["https://www.googleapis.com/auth/youtube.force-ssl"],
+            )
+    return creds.token
 
 def descargar_mp3(url: str, nombre_archivo: str = None):
     """
@@ -35,6 +55,7 @@ def descargar_mp3(url: str, nombre_archivo: str = None):
         else:
             titulo = f'{TEMP_FOLDER}/{nombre_archivo}.%(ext)s'
 
+        token = obtener_token()
         ydl_opts = {
             'format': 'bestaudio/best',
             'postprocessors': [{
@@ -44,7 +65,8 @@ def descargar_mp3(url: str, nombre_archivo: str = None):
             }],
             'outtmpl': f'{titulo}',
             'headers': {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.3',
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.3',
+                'Authorization': f'Bearer {token}',
             },
             'cookies': './cookies.txt',
         }
