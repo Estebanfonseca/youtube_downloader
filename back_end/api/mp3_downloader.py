@@ -43,12 +43,10 @@ def descargar_mp3(url: str, nombre_archivo: str = None):
                 'preferredquality': '192',
             }],
             'outtmpl': f'{titulo}',
-            'cookies': './cookies.txt',
             'headers': {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.169 Safari/537.3',
             },
-            'username': 'jancaesteban17@gmail.com',  # Reemplaza con tu usuario de YouTube
-            'password': 'Esteban57@',  # Reemplaza con tu contraseña de YouTube
+            'cookies': './cookies.txt',
         }
 
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
